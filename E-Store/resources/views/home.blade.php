@@ -1,6 +1,30 @@
 @extends('master')
 @section('content')
 
-<h1>Home Page</h1>
+<div class="album py-5 bg-light">
+    <div class="container">
 
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            @foreach($products as $product)
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <img class="product-image card-img-top" src={{URL::to('images/'.$product['photo'])}}>
+                    </div>
+                    <div class="card-footer bg-dark text-white">
+                        <p class="card-text">{{$product['name']}}</p>
+                        <p class="card-text">{{$product['price']}} UZS</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">More info</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</div>
 @endsection
