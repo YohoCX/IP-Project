@@ -13,7 +13,7 @@
                 <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Password</label>
             </div>
-            <button class="btn btn-dark" type="submit">Sign in</button>
+            <button class="btn btn-dark login-button" type="submit">Sign in</button>
         </form>
     </main>
 
@@ -25,6 +25,10 @@
         }
         .form-floating{
             margin-bottom: 10px;
+        }
+        .login-button{
+            min-width: 200px;
+            margin-bottom: 100%;
         }
     </style>
 

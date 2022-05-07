@@ -13,12 +13,24 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', [HomeController::class, 'index']);
 Route::get('/login', function (){
     return view('login');
 });
-Route::get('/cart',function (){
-    return view('cart');
+Route::get('logout', function (){
+    Session::forget('user');
+    return view('login');
 });
+Route::get('/register', function (){
+   return view('register');
+});
+Route::get('/', [HomeController::class, 'index']);
+Route::get('detail/{id}',[HomeController::class, 'detail']);
+Route::get('/cart',[HomeController::class, 'cart']);
+Route::get('/order',[HomeController::class,'order']);
+Route::get('/orders',[HomeController::class,'orderList']);
+Route::get('/removecart/{id}',[HomeController::class,'removeCart']);
+
+Route::post('/order_confirm',[HomeController::class,'order_confirm']);
 Route::post('login', [UserController::class,'login']);
+Route::post('/register', [UserController::class,'register']);
+Route::post("add_to_cart",[HomeController::class,'addToCart']);
